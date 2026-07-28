@@ -13,5 +13,6 @@ router.use("/comments", require("./features/commentApi"));
 router.use("/payments", require("./features/paymentApi.js"));
 router.use("/auth/local", require("./auth/local.js"));
 router.use("/auth/google", require("./auth/google"));
+router.use("/messages", require("./features/messageApi.js"));
 
 module.exports = router;
