@@ -129,7 +129,7 @@ app.use(
   }),
 );
 
-app.options("*", cosrs());
+app.options("*", cors());
 
 // 🧠 Parsers
 app.use(express.json());
