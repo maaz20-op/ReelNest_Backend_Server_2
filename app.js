@@ -108,8 +108,6 @@ app.use(
 //   }),
 // );
 
-// app.use(flash());
-
 //app.use(checkOrigin); //check is origin is trusted site e.g reelnest.com
 
 // 📢 Flash messages for EJS views
