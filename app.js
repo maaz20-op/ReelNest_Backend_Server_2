@@ -110,12 +110,6 @@ app.use(
 
 //app.use(checkOrigin); //check is origin is trusted site e.g reelnest.com
 
-// 📢 Flash messages for EJS views
-app.use(function (req, res, next) {
-  res.locals.success = req.flash("success");
-  res.locals.error = req.flash("error");
-  next();
-});
 app.use((req, res, next) => {
   console.log(req.url);
   next();
@@ -125,6 +119,7 @@ app.use(
   cors({
     origin: ["http://localhost:5173", "https://reel-nest-frontend.vercel.app"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true, // Allows the backend to receive/send cookies
   }),
 );
@@ -143,12 +138,10 @@ app.set("views", path.join(__dirname, "views"));
 // mounting of routes
 app.use("/api/v1", require("./routes/api/v1/index")); // use for api v1 response, save fall back for index.js if package.json has main feild
 
-app.locals.moment = moment;
-
-app.get("/csp-violation", function (req, res) {
-  console.log("Some voilation made");
-  res.send("Some voilation of helmet is made");
-});
+// app.get("/csp-violation", function (req, res) {
+//   console.log("Some voilation made");
+//   res.send("Some voilation of helmet is made");
+// });
 
 app.get("/all", async function (req, res) {
   const user = await userModel.findOne({ fullname: "Maaz Javed" });
