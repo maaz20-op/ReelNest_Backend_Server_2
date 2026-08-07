@@ -9,6 +9,7 @@ module.exports.createComment = async function (req) {
   if (!input || !id) throw new Error("Invalid data Cant perform operation");
   try {
     let post = await postModel.findById(id);
+    console.log(post);
     if (!post) throw new Error("not valid post");
     let loggedInUser = await userModel.findById(req.user._id);
 
