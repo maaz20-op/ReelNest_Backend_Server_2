@@ -8,7 +8,7 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL:
-        "https://reel-nest-backend.vercel.app/api/v1/auth/google/callback",
+        "https://reel-nest-backend2.vercel.app/api/v1/auth/google/callback",
     },
     googleConfigCallback,
   ),
